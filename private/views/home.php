@@ -14,6 +14,10 @@
     </p>
 
     <p>
+        Feel free to send me an email, it would make my day. It's not weird unless you make it weird, I promise: <a href="mailto:hello@jeromepaulos.com">hello@jeromepaulos.com</a>
+    </p>
+
+    <p>
         I've challenged myself to write two blog posts a week. Currently, I've written for <strong><?= $streak ?> week<?= s($streak) ?></strong> in a row. I also write <a href="/tutorials">strictly-technical posts</a> that are meant to be found when searching Google, which count towards the streak.
     </p>
 

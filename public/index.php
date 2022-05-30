@@ -51,5 +51,3 @@ try {
     ob_end_clean();
     view('error', code: 500);
 }
-
-echo '<script>console.log(\'Womp womp, cache miss\')</script>';

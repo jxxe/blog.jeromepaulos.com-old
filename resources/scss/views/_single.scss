@@ -46,25 +46,23 @@ body.single {
         }
     }
 
-    @for $i from 1 to 6 {
-        h#{$i} {
-            cursor: text;
+    h1, h2, h3, h4, h5, h6 {
+        &[id] {
             width: fit-content;
 
             > a {
-                pointer-events: none;
                 color: black;
                 border: none;
 
-                &::before {
-                    pointer-events: all;
-                    // content: str-repeat('#', $i - 1) ' ';
-                    content: '# ';
-                    color: $accent;
+                &::after {
+                    content: ' 🔗';
+                    font-size: 1rem;
+                    filter: brightness(0);
+                    opacity: 0;
                 }
 
-                &:hover::before {
-                    color: darken($accent, 10);
+                &:hover::after {
+                    opacity: 0.5;
                 }
             }
         }

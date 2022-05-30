@@ -27,13 +27,15 @@ class AdminController {
 
         $comments = Database::query('
             SELECT COUNT(*) AS count
-            FROM comments        
+            FROM comments
         ')[0]['count'];
 
         $posts_this_week = Database::query('
             SELECT COUNT(*) AS count
             FROM posts
-            WHERE STRFTIME(\'%W\', date) = STRFTIME(\'%W\', DATE()) 
+            WHERE
+                STRFTIME(\'%W\', date) = STRFTIME(\'%W\', DATE()) AND
+                published > 0
         ')[0]['count'];
 
         view(
@@ -90,7 +92,7 @@ class AdminController {
                 ', [
                     'title' => substr($_POST['title'], 0, 255),
                     'content' => $_POST['content'],
-                    'date' => strtotime($_POST['date']) ? $_POST['date'] : date('Y-m-d'),
+                    'date' => strtotime($_POST['date']) ? $_POST['date'] : date('c'),
                     'tutorial' => (int) ($_POST['status'] === 'tutorial'),
                     'published' => (int) ($_POST['status'] === 'published' || $_POST['status'] === 'tutorial'),
                     'slug' => $slug
@@ -103,7 +105,7 @@ class AdminController {
                     'title' => substr($_POST['title'], 0, 255),
                     'slug' => $slug = slugify($_POST['slug'] ?? $_POST['title']),
                     'content' => $_POST['content'],
-                    'date' => strtotime($_POST['date']) ? $_POST['date'] : date('Y-m-d'),
+                    'date' => strtotime($_POST['date']) ? $_POST['date'] : date('c'),
                     'tutorial' => (int) ($_POST['status'] === 'tutorial'),
                     'published' => (int) ($_POST['status'] === 'published' || $_POST['status'] === 'tutorial')
                 ]);

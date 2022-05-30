@@ -29,7 +29,7 @@
         <input name="slug" placeholder="slug" required type="text" value="<?= $post['slug'] ?? '' ?>" <?= ($post['slug'] ?? false) ? 'disabled' : '' ?>>
 
         <div class="buttons">
-            <input name="date" required type="date" value="<?= $post['date'] ?? date('Y-m-d') ?>">
+            <input name="date" required type="datetime-local" value="<?= $post['date'] ?? date('c') ?>">
             <select name="status">
                 <option value="draft" <?= !($post['published'] ?? false) ? 'selected' : '' ?>>Draft</option>
                 <option value="published" <?= ($post['published'] ?? false) && !($post['tutorial'] ?? false) ? 'selected' : '' ?>>Published</option>

@@ -9,7 +9,7 @@
     <header>
         <h1>
             <span><?= htmlspecialchars($post['title']) ?></span>
-            <time datetime="<?= $post['date']->format('Y-m-d') ?>"><?= $post['date']->format('F j, Y') ?></time>
+            <time datetime="<?= $post['date']->format('c') ?>"><?= $post['date']->format('F j, Y g:ia') ?></time>
         </h1>
     </header>
 
