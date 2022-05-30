@@ -8,19 +8,12 @@ use DateTime;
 class HomeController {
 
     public static function index(): void {
-        /*$posts = Database2::query('
+        $posts = Database::query('
             SELECT title, slug, date, tutorial
             FROM posts
             WHERE
                 date <= DATE() AND
                 published > 0
-            ORDER BY date DESC
-        ');*/
-
-        $posts = Database::query('
-            SELECT title, slug, date, tutorial
-            FROM posts
-            WHERE date <= CURRENT_DATE AND published > 0
             ORDER BY date DESC
         ');
 

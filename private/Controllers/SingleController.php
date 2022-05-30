@@ -14,10 +14,10 @@ class SingleController {
             SELECT *
             FROM posts
             WHERE
-                slug = %s AND
-                date <= CURRENT_DATE AND
+                slug = :slug AND
+                date <= DATE() AND
                 published > 0
-        ', $slug);
+        ', ['slug' => $slug]);
 
         if(!$post) RespondWith::error_page(404);
         $post = $post[0];
@@ -28,9 +28,9 @@ class SingleController {
         $comments = Database::query('
             SELECT *
             FROM comments
-            WHERE post_id = %i
+            WHERE post_id = :post_id
             ORDER BY timestamp DESC
-        ', $post['id']);
+        ', ['post_id' => $post['id']]);
 
         view('single', post: $post, comments: $comments);
     }
@@ -55,12 +55,23 @@ class SingleController {
         $parent_id = empty($_POST['parent_id']) ? null : $_POST['parent_id'];
         if(!is_numeric($parent_id)) $parent_id = null;
 
-        Database::insert('comments', [
+        Database::query('
+            INSERT INTO comments (post_id, parent_id, name, email, content, timestamp)
+            VALUES (
+                (SELECT id FROM posts WHERE slug = :slug),
+                :parent_id,
+                :name,
+                :email,
+                :content,
+                :timestamp
+            )
+        ', [
             'slug' => $slug,
             'parent_id' => $parent_id,
-            'name' => $_POST['name'],
-            'email' => strtolower(trim($_POST['email'])),
-            'content' => $_POST['content']
+            'name' => strtolower(trim($_POST['name'])),
+            'email' => $_POST['email'],
+            'content' => $_POST['content'],
+            'timestamp' => time()
         ]);
 
         self::index($slug);

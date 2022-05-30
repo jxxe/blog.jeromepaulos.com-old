@@ -12,7 +12,7 @@ class ArchiveController {
             SELECT title, slug, date
             FROM posts
             WHERE
-                date <= CURRENT_DATE AND
+                date <= DATE() AND
                 published > 0 AND
                 tutorial = 0
             ORDER BY date DESC

@@ -34,9 +34,7 @@
                 <option value="draft" <?= !($post['published'] ?? false) ? 'selected' : '' ?>>Draft</option>
                 <option value="published" <?= ($post['published'] ?? false) && !($post['tutorial'] ?? false) ? 'selected' : '' ?>>Published</option>
                 <option value="tutorial" <?= ($post['tutorial'] ?? false) && ($post['published'] ?? false) ? 'selected' : '' ?>>Tutorial</option>
-                <?php if($post ?? false): ?>
-                    <option value="delete">Delete</option>
-                <?php endif; ?>
+                <option value="delete">Delete</option>
             </select>
             <button class="save">Save Draft</button>
         </div>

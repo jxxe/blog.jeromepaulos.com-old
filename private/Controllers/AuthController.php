@@ -17,7 +17,7 @@ class AuthController {
             trim(strtolower($_POST['email'])) !== strtolower($_ENV['EMAIL']) ||
 
             empty($_POST['password']) ||
-            !password_verify($_POST['password'], $_ENV['PASSWORD_HASH'])
+            !password_verify($_POST['password'], $_ENV['PASSWORD'])
         ) {
             self::login_page(true);
         } else {

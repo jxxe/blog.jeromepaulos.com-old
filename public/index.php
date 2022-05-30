@@ -1,13 +1,13 @@
 <?php
 
+use Blog\App\ConfigParser;
 use Blog\App\Paths;
 use Bramus\Router\Router;
-use Dotenv\Dotenv;
 
 require_once '../vendor/autoload.php';
 require_once Paths::PRIVATE . '/App/functions.php';
 
-Dotenv::createImmutable(Paths::ROOT)->load();
+ConfigParser::load(Paths::CONFIG);
 
 date_default_timezone_set($_ENV['TIME_ZONE']);
 header_remove('X-Powered-By');

@@ -1,0 +1,9 @@
+SITE_TITLE = the name of the site
+EMAIL = the user's login email
+PASSWORD = the results of password_hash()
+TIME_ZONE = time zone for date_default_timezone_set()
+POSTS_PER_WEEK = goal of posts two write each week
+
+GITHUB_TOKEN = personal access token
+UPLOADS_REPO = write as username/repo
+UPLOADS_BASE_URL = most likely: https://username.github.io/repo/images

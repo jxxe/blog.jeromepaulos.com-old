@@ -11,8 +11,6 @@
         "erusev/parsedown-extra": "^0.8.1",
         "scrivo/highlight.php": "v9.18.1.9",
         "ext-curl": "*",
-        "ext-fileinfo": "*",
-        "vlucas/phpdotenv": "^5.4",
-        "sergeytsalkov/meekrodb": "^2.4"
+        "ext-fileinfo": "*"
     }
 }

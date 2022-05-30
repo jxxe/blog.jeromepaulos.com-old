@@ -10,6 +10,6 @@ abstract class Paths {
     public const PUBLIC = self::ROOT . '/public';
     public const RESOURCES = self::ROOT . '/resources';
 
-    public const CONFIG = self::ROOT . '/.env';
+    public const CONFIG = self::ROOT . '/config.txt';
 
 }
