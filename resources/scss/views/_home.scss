@@ -1,0 +1,21 @@
+#home {
+    @media screen and (min-width: $width) {
+        margin-top: 1rem;
+
+        img {
+            margin-top: -2rem;
+            image-rendering: pixelated;
+        }
+    }
+
+    .posts-wrapper {
+        display: flex;
+        gap: 1rem;
+        align-items: end;
+
+        .posts {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}

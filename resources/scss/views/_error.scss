@@ -1,0 +1,10 @@
+#error {
+    background-color: black;
+    padding: 0;
+    border-color: black;
+
+    img {
+        pointer-events: none;
+        user-select: none;
+    }
+}

@@ -1,0 +1,50 @@
+#edit {
+    @media screen and (min-width: $width) {
+        padding-bottom: 0;
+        margin-bottom: 1rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .save {
+            white-space: nowrap;
+        }
+    }
+
+    .EasyMDEContainer {
+        @media screen and (min-width: $width) {
+            width: calc(100% + 3rem * 2);
+            box-shadow: $box-shadow;
+            margin: 0.5rem -3rem -1rem;
+        }
+
+        .CodeMirror-wrap {
+            border-bottom-left-radius: $radius;
+            border-bottom-right-radius: $radius;
+            box-shadow: 0 0 0 black, inset 0 3px 3px #eeeeee;
+        }
+
+        .cm-spell-error {
+            background: none;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-decoration-style: wavy;
+            text-decoration-thickness: 1px;
+        }
+
+        .editor-toolbar {
+            border-color: $pale;
+            border-top-left-radius: $radius;
+            border-top-right-radius: $radius;
+            background-image: slight-gradient(white, false);
+            padding: 0.25rem 0.5rem;
+
+            button {
+                box-shadow: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.breadcrumbs {
+    margin-bottom: 1rem;
+    line-height: 1;
+
+    a {
+        border: none;
+    }
+
+    > :not(:first-child)::before {
+        content: ' » ';
+        color: $gray;
+    }
+}

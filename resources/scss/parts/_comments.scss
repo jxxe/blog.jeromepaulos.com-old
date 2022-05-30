@@ -1,0 +1,110 @@
+#comments {
+    .reply-to {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            cursor: pointer;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        border-bottom: solid 1px $pale;
+        padding-bottom: 1rem;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        textarea {
+            min-height: 5rem;
+        }
+
+        .notice {
+            justify-content: end;
+            gap: 1rem;
+            text-align: right;
+
+            p {
+                margin: 0;
+                color: $gray;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .comment-group {
+        margin-top: 1rem;
+
+        & ~ .comment-group {
+            padding-top: 1rem;
+            margin-top: 0;
+        }
+
+        .comment {
+            &.highlighted {
+                outline: solid 1px $accent;
+                outline-offset: 0.5rem;
+                border-radius: $radius / 2;
+            }
+
+            .comment-meta {
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+                justify-content: space-between;
+
+                .comment-author {
+                    display: flex;
+                    gap: 0.75rem;
+                    align-items: center;
+
+                    img {
+                        width: 48px;
+                        height: 48px;
+                    }
+
+                    .comment-author-name {
+                        p {
+                            margin: 0;
+                        }
+
+                        a {
+                            border-bottom: none;
+
+                            time {
+                                color: $gray;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .comment-body {
+                margin-top: 1rem;
+                :first-child { margin-top: 0; }
+                :last-child { margin-bottom: 0; }
+            }
+        }
+
+        .comment-group {
+            padding-left: 1rem;
+            border-left: solid 1px $pale;
+        }
+    }
+
+    /*pre code {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }*/
+}

@@ -1,0 +1,31 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .site-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1;
+        border: none;
+        color: black;
+        &:hover { color: $accent; }
+    }
+}
+
+.search-wrapper {
+    position: relative;
+
+    svg {
+        fill: $gray;
+        width: 0.9rem;
+        pointer-events: none;
+
+        position: absolute;
+        top: 50%;
+        right: 0.75rem;
+
+        transform: translateY(-50%);
+    }
+}

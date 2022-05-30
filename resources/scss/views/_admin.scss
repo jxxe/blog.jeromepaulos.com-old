@@ -1,0 +1,51 @@
+.stats {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: $width) {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        text-align: center;
+        padding: 1rem;
+        box-shadow: $box-shadow;
+        border-radius: $radius;
+        background-image: slight-gradient(white);
+
+        h1, p {
+            margin: 0;
+        }
+
+        p {
+            color: $gray;
+        }
+    }
+}
+
+#admin {
+    .posts-table {
+        .post-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:not(:first-child) {
+                padding-top: 1rem;
+                margin-top: 1rem;
+                border-top: solid 1px $pale;
+            }
+
+            .post-meta {
+                color: $gray;
+
+                > :not(:last-child)::after {
+                    content: ' - ';
+                    color: $pale;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    // background-image: url('/dist/wood.png');
+
+    background-image: url('/dist/background.png');
+    background-color: #3A3A3A;
+    background-position: top center;
+
+    font-family: $font;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+
+    padding: 3rem 1rem;
+    margin: 0;
+
+    @media screen and (max-width: $width) { padding: 1rem; }
+    overflow-x: hidden;
+
+    display: grid;
+    grid-gap: 1rem;
+
+    > * {
+        max-width: $width;
+
+        // width: 100%;
+        width: calc(100vw - 2rem);
+
+        margin: 0 auto;
+        padding: 1rem;
+
+        // border: solid 1px $pale;
+        border-radius: $radius;
+        background-color: white;
+        box-shadow: $box-shadow;
+
+        & > :first-child { margin-top: 0; }
+        & > :last-child { margin-bottom: 0; }
+    }
+}
+
+a {
+    color: $accent;
+    border-bottom: solid 1px $pale;
+    text-decoration: none;
+
+    &:hover {
+        border-color: $accent;
+    }
+}
+
+img {
+    max-width: 100%;
+    border-radius: $radius;
+    display: block;
+}
+
+ul, ol {
+    li {
+        margin: 0.5rem 0;
+
+        &::marker {
+            color: $accent;
+        }
+    }
+}
+
+table {
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+
+    td, tr, th {
+        padding: 0.25rem 0.5rem;
+        border-bottom: solid 1px $pale;
+    }
+
+    th {
+        border-top: solid 1px $pale;
+        border-bottom-color: $accent;
+    }
+}
+
+hr {
+    height: 1px;
+    background-color: $pale;
+    border: none;
+    margin: 1rem -1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 2rem 0 1rem;
+}
+
+::selection {
+    background-color: rgba($accent, 0.3);
+}
+
+blockquote {
+    border-left: solid 1px $pale;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}

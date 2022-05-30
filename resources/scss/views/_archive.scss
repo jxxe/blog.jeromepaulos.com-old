@@ -1,0 +1,28 @@
+body.archive {
+    main {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 0 $radius $radius $radius;
+        border-top: none;
+    }
+
+    h1 {
+        line-height: 1;
+        margin: 0;
+    }
+}
+
+.posts {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+
+    li:first-child { margin-top: 0; }
+    li:last-child { margin-bottom: 0; }
+
+    time {
+        color: $gray;
+        font-style: italic;
+        font-size: 0.75rem;
+    }
+}

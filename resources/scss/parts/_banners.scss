@@ -1,0 +1,19 @@
+.banner {
+    border-radius: $radius;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
+
+    color: black;
+    border: solid 1px #76A646;
+    background-image: slight-gradient(lighten(#76A646, 40));
+
+    p {
+        margin: 0;
+    }
+
+    &.error {
+        border: solid 1px #d5a8a8;
+        background-image: slight-gradient(#efc7c7);
+        color: black;
+    }
+}

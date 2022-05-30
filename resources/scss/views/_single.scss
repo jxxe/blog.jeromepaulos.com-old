@@ -1,0 +1,89 @@
+@media screen and (min-width: $width) {
+    .wide {
+        box-shadow: $box-shadow;
+        margin: 0 -3rem;
+        width: calc(100% + 3rem * 2);
+        max-width: none;
+        background-color: white;
+    }
+}
+
+body.single {
+    .footnotes {
+        .footnote-backref {
+            display: none;
+        }
+    }
+
+    #single {
+        header {
+            margin: -1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-bottom: solid 1px $pale;
+
+            @media screen and (max-width: $width) { margin-bottom: 2rem; }
+
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h1 {
+                margin: 0 0 -4px;
+                line-height: 1em;
+
+                time {
+                    color: $gray;
+                    font-size: 1.2rem;
+                    font-weight: normal;
+                    display: inline-block;
+                }
+            }
+
+            ~ p > img {
+                margin-top: calc(-1rem - 1px);
+            }
+        }
+    }
+
+    @for $i from 1 to 6 {
+        h#{$i} {
+            cursor: text;
+            width: fit-content;
+
+            > a {
+                pointer-events: none;
+                color: black;
+                border: none;
+
+                &::before {
+                    pointer-events: all;
+                    // content: str-repeat('#', $i - 1) ' ';
+                    content: '# ';
+                    color: $accent;
+                }
+
+                &:hover::before {
+                    color: darken($accent, 10);
+                }
+            }
+        }
+    }
+
+    .sharing-buttons {
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: repeat(4, 1fr);
+
+        .button { width: 100%; }
+
+        .share-hacker-news { @include button(#ff6600); }
+        .share-twitter { @include button(#1DA1F2); }
+        .share-reddit { @include button(#E05026); }
+        .share-email { @include button(gray); }
+
+        @media screen and (max-width: $width) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
