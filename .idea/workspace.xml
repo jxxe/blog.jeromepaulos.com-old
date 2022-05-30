@@ -32,13 +32,6 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/bramus/router" />
       <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
-      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/sergeytsalkov/meekrodb" />
     </include_path>
   </component>
   <component name="ProjectId" id="29HTFUhdb50EOtuzaSPviWO6Z8m" />
@@ -99,7 +92,7 @@
       <workItem from="1653500170093" duration="252000" />
       <workItem from="1653716723225" duration="228000" />
       <workItem from="1653793622680" duration="229000" />
-      <workItem from="1653862150229" duration="7089000" />
+      <workItem from="1653862150229" duration="13395000" />
     </task>
     <servers />
   </component>

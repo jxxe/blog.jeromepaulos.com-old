@@ -112,6 +112,8 @@ class AdminController {
             }
         }
 
+        apcu_clear_cache();
+
         self::edit_post($slug);
     }
 

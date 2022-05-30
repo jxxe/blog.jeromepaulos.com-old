@@ -1,17 +1,23 @@
 <?php
 
+require_once '../private/App/functions.php';
+
+header_remove('X-Powered-By');
+session_start(['name' => 'session']);
+
+if(should_cache()) {
+    $cached_html = apcu_fetch($_SERVER['REQUEST_URI']);
+    if($cached_html) exit($cached_html);
+}
+
+require_once '../vendor/autoload.php';
+
 use Blog\App\ConfigParser;
 use Blog\App\Paths;
 use Bramus\Router\Router;
 
-require_once '../vendor/autoload.php';
-require_once Paths::PRIVATE . '/App/functions.php';
-
 ConfigParser::load(Paths::CONFIG);
-
 date_default_timezone_set($_ENV['TIME_ZONE']);
-header_remove('X-Powered-By');
-session_start(['name' => 'session']);
 
 $router = new Router();
 
@@ -26,7 +32,7 @@ $router->get('/login', '\Blog\Controllers\AuthController::login_page');
 $router->post('/login', '\Blog\Controllers\AuthController::POST_login');
 $router->get('/logout', '\Blog\Controllers\AuthController::logout');
 
-$router->before('.*', '/admin(\/.*|)', '\Blog\Controllers\AuthController::guard');
+$router->before('GET|POST', '/admin(\/.*|)', '\Blog\Controllers\AuthController::guard');
 
 $router->match('GET|POST', '/admin', '\Blog\Controllers\AdminController::index');
 $router->post('/admin/upload', '\Blog\Controllers\ImageUploadController::POST_image');
@@ -35,13 +41,15 @@ $router->post('/admin/{slug}', '\Blog\Controllers\AdminController::POST_save_pos
 
 $router->set404('\Blog\App\RespondWith::error_page');
 
-/*try {
+try {
     ob_start();
     $router->run();
-    echo ob_get_clean();
+    $html = ob_get_clean();
+    if(should_cache()) apcu_add($_SERVER['REQUEST_URI'], $html, 60*30);
+    echo $html;
 } catch(Exception) {
     ob_end_clean();
     view('error', code: 500);
-}*/
+}
 
-$router->run();
+echo '<script>console.log(\'Womp womp, cache miss\')</script>';

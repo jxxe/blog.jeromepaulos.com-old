@@ -68,11 +68,13 @@ class SingleController {
         ', [
             'slug' => $slug,
             'parent_id' => $parent_id,
-            'name' => strtolower(trim($_POST['name'])),
-            'email' => $_POST['email'],
+            'name' => $_POST['name'],
+            'email' => strtolower(trim($_POST['email'])),
             'content' => $_POST['content'],
             'timestamp' => time()
         ]);
+
+        apcu_delete($_SERVER['REQUEST_URI']);
 
         self::index($slug);
     }

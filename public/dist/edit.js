@@ -65,7 +65,8 @@ new EasyMDE({
     uploadImage: true,
     imageUploadEndpoint: '/admin/upload',
     imagePathAbsolute: true,
-    unorderedListStyle: '-'
+    unorderedListStyle: '-',
+    spellChecker: false
 });
 
 })();

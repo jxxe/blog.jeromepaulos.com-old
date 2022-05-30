@@ -42,3 +42,16 @@ function get_url(): string {
 
     return $url;
 }
+
+function is_admin(): bool {
+    return
+        $_SERVER['REQUEST_URI'] === '/admin' ||
+        str_starts_with($_SERVER['REQUEST_URI'], '/admin/');
+}
+
+function should_cache(): bool {
+    return
+        $_SERVER['REQUEST_METHOD'] === 'GET' &&
+        !($_SESSION['logged_in'] ?? false) &&
+        !is_admin();
+}
